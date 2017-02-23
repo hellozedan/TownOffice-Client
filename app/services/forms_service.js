@@ -17,8 +17,9 @@ function ConfigurationService($state) {
   }
 }
 function FormDetailsService($http, $q) {
-    /*  var  apiBase= 'https://kholod.herokuapp.com/api/';*/
-    var  apiBase= 'http://localhost:3000/api/';
+
+    var apiBase='https://townoffices.herokuapp.com/api/';
+ /*   var  apiBase= 'http://localhost:3000/api/';*/
   return ({
     create: create,
     edit:edit,

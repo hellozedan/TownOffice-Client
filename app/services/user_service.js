@@ -1,8 +1,9 @@
 'use strict';
 
 function UserDetailsService($http, $q) {
-    /*  var  apiBase= 'https://kholod.herokuapp.com/api/';*/
-    var  apiBase= 'http://localhost:3000/api/';
+
+    var apiBase='https://townoffices.herokuapp.com/api/';
+ /*   var  apiBase= 'http://localhost:3000/api/';*/
     var userDetails = null;
 
 
