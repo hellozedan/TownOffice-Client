@@ -10,7 +10,7 @@ angular.module('myApp.form1', ['ngRoute'])
     }])
     .controller('Form1Ctrl', Form1Ctrl);
 
-function Form1Ctrl($scope,FormDetailsService) {
+function Form1Ctrl($scope,FormDetailsService,ngNotify) {
 
 
     $scope.form1 = {};
@@ -83,7 +83,7 @@ function Form1Ctrl($scope,FormDetailsService) {
     $scope.saveForm=function () {
         $scope.form1.type="water";
         FormDetailsService.create($scope.form1).then(function (result) {
-                console.log('saved');
+            ngNotify.set('הטופס נשמר בצלחה', 'success');
             }, function (err) {
             }
         );

@@ -24,7 +24,8 @@ function FormDetailsService($http, $q) {
     edit:edit,
     getAllForms:getAllForms,
     getFormByID:getFormByID,
-    getFormByQuery:getFormByQuery
+    getFormByQuery:getFormByQuery,
+      getLast10Forms:getLast10Forms
 
   });
   function getAllForms() {
@@ -41,6 +42,21 @@ function FormDetailsService($http, $q) {
 
     return deferred.promise;
   }
+
+    function getLast10Forms() {
+        var deferred = $q.defer();
+
+        $http.get(apiBase+'form_details/getLast10Forms', { headers: { 'Content-Type': 'application/json' } })
+            .success(function (data) {
+                deferred.resolve(data);
+            })
+            .error(function (data) {
+                /*ConfigurationService.isServerDown(data);*/
+                deferred.reject(data);
+            });
+
+        return deferred.promise;
+    }
 
   function getFormByID(id) {
     var deferred = $q.defer();

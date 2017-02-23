@@ -13,7 +13,7 @@ angular.module('myApp.view1', ['ngRoute'])
     .controller('View1Ctrl',View1Ctrl );
 
 
-function View1Ctrl($scope,FormDetailsService){
+function View1Ctrl($scope,FormDetailsService,ngNotify){
 
 
       $scope.forms_list=[
@@ -21,13 +21,14 @@ function View1Ctrl($scope,FormDetailsService){
 
 
     $scope.query={};
-    $scope.query.name="";
+    $scope.query.type="none";
     $scope.query.gosh="";
     $scope.query.helka="";
     $scope.query.megrash="";
+    $scope.query.name="";
 
 
-    FormDetailsService.getAllForms().then(function (result) {
+    FormDetailsService.getLast10Forms().then(function (result) {
             if (result != null) {
                 $scope.forms_list = result;
             }
@@ -37,12 +38,9 @@ function View1Ctrl($scope,FormDetailsService){
 
     $scope.goSearchBy=function () {
 
-
-
-        console.log($scope.query);
-        if(  $scope.query.type=="" && $scope.query.name=="" &&  $scope.query.gosh=="" &&  $scope.query.helka==""&& $scope.query.megrash==""){
+        if(  ($scope.query.type=="none" ||$scope.query.type=="") && $scope.query.name=="" &&  $scope.query.gosh=="" &&  $scope.query.helka==""&& $scope.query.megrash==""){
             //notification to choose one
-            alert('write something to search')
+            ngNotify.set('הזן נתונים לחיפוש', 'error');
         }else{
 
              FormDetailsService.getFormByQuery($scope.query).then(function (result) {
@@ -56,6 +54,11 @@ function View1Ctrl($scope,FormDetailsService){
     $scope.clearSearch=function () {
 
         $scope.query={};
+        $scope.query.name="";
+        $scope.query.gosh="";
+        $scope.query.helka="";
+        $scope.query.megrash="";
+        $scope.query.type="none";
     }
 
 
