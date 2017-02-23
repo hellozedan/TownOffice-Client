@@ -1,0 +1,211 @@
+body{
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
+@page { size: auto;  margin: 0mm; }
+@media print
+{
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+
+    pre {
+        border: none !important;
+    }
+
+    textarea
+    {
+        resize: none;
+    }
+}
+.main-page{
+    font-family: "Times New Roman", Georgia, Serif;
+    width: 2480px;
+    height: 3508px;
+    margin: 0 auto;
+    position: relative;
+    background-color: white;
+    padding: 20px 70px 10px;
+    font-size: 70px;
+
+    zoom: 30%;
+}
+
+.date-label{
+
+   float: left;
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.table  {
+    border: 1px solid #ddd;
+    overflow-x: inherit;
+    font-size: 23px;
+}
+
+th{
+    font-size: 55px;
+}
+
+
+/*
+.table {
+    border-collapse: collapse;
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 30px;
+
+    display: block;
+}*/
+/*
+
+th, td {
+    padding: 15px;
+}
+th {
+    height: 50px;
+    text-align: center;
+}
+td {
+    min-height: 40px;
+    text-align: center;
+}*/
+
+.logo-town{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+
+.sincerely{
+
+  position: absolute;
+    bottom: 150px;
+
+
+    text-align: center;
+    left: 100px;
+}
+
+.dearSir{
+    margin-right: 30px;
+    margin-top: 170px;
+
+
+}
+
+.center-title-label{
+    text-align:center;
+    margin-bottom: 50px;
+    margin-top: 100px;
+    margin-right: 33%;
+}
+
+input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+
+th {
+
+    text-align: center !important;
+}
+
+.input-in-table{
+    border: 0;
+    outline: 0;
+
+}
+
+
+.paregraph{
+    margin: 30px 15px 60px 15px;
+
+
+
+}
+
+.print-button{
+
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.add-row-button{
+    float: left;
+    margin-top: 25px;
+    margin-left: 20px;
+    zoom: 200%;
+
+}
+
+.end_paregraph{
+    margin-top: 50px;
+}
+
+
+ .remove-button{
+    zoom: 150%;
+
+}
+
+ .search-box{
+     margin-top:20px;
+
+ }
+
+
+textarea {
+    max-width: 318px;
+    font-size: 52px !important;
+
+
+}
+
+
+.input-to-form{
+    width: 500px;
+}
+
+.clickable{
+
+ cursor: pointer;
+}
+
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+.item-in-search{
+
+    background-color: darkgrey;
+    margin: 30px;
+    padding: 10px;
+    width: 50%;
+    border-radius: 10px;
+}
+
+
+.row-in-table-view td p{
+    min-height: 154px;
+    max-width: 318px;
+    font-size: 52px !important;
+}

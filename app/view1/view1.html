@@ -1,0 +1,71 @@
+<div class="container search-box">
+    <h2>חיפוש טפסים</h2>
+    <div class="row">
+        <div class="col-xs-12 ">
+            <div class="row">
+
+                <div  class=" col-xs-2">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="goSearchBy()"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+                </div>
+
+
+
+
+                <div  class=" col-xs-2">
+                    <input type="text" class="form-control" name="x" placeholder="מגרש" ng-model="query.megrash">
+                </div>
+
+                <div  class=" col-xs-2">
+                    <input type="text" class="form-control" name="x" placeholder="חלקה" ng-model="query.helka">
+                </div>
+                <div  class=" col-xs-2">
+                    <input type="text" class="form-control" name="x" placeholder="גוש" ng-model="query.gosh">
+                </div>
+                <div  class=" col-xs-2">
+                    <input type="text" class="form-control" name="x" placeholder="שם" ng-model="query.name">
+                </div>
+
+                <input type="hidden" name="search_param" value="all" id="search_param">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div>
+    <h2>רשימת טפסים</h2>
+
+
+    <a href="#!/view_form" target="_blank"> go to view</a>
+    <div class="item-in-search clickable" ng-repeat="form in forms_list" ng-click="OpenForm(form._id)">
+
+        <span class="glyphicon glyphicon-book"></span>
+        <span style="font-weight: bold">{{form.name}}
+        </span>
+        <br>
+        <span>
+    גוש
+        {{form.gosh}}
+            </span>
+        &nbsp; &nbsp;
+        <span>
+      --  חלקה
+        {{form.helka}}
+            </span>
+        &nbsp; &nbsp;
+        <span>
+        --מגרש
+        {{form.megrash}}
+</span>
+
+    </div>
+
+</div>
+
+
