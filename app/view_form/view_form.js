@@ -1,68 +1,49 @@
 'use strict';
 
-angular.module('myApp.form1', ['ngRoute'])
+angular.module('myApp.view_form', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/form1', {
-            templateUrl: 'form1/form1.html',
-            controller: 'Form1Ctrl'
+        $routeProvider.when('/view_form', {
+            templateUrl: 'view_form/view_form.html',
+            controller: 'FormViewCtrl'
         });
     }])
-    .controller('Form1Ctrl', Form1Ctrl);
+    .controller('FormViewCtrl', FormViewCtrl);
 
-function Form1Ctrl($scope,FormDetailsService) {
+function FormViewCtrl($scope,FormDetailsService) {
 
 
-    $scope.form1 = {};
-    $scope.form1.date = new Date();
-    $scope.form1.name="";
+    function getParameterByName(name, url) {
+        if (!url) {
+            url = window.location.href;
+        }
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+
+    var id = getParameterByName('id');
+
+
+    FormDetailsService.getFormByID(id).then(function (result) {
+            if (result != null) {
+                $scope.form1 = result;
+                $scope.form1.date=new Date(result.date);
+            }
+        }, function (err) {
+        }
+    );
 
 
     $scope.printPage = function () {
         window.print();
     }
 
-    $scope.form1.table = [
-
-        {
-            col1: '  ',
-            col2: '  ',
-            col3: '',
-            col4: '  ',
-            col5: '',
-            col6: '',
-            col7: ''
-        },
-        {
-            col1: '',
-            col2: '',
-            col3: '',
-            col4: '',
-            col5: '',
-            col6: '',
-            col7: ''
-        },
-        {
-            col1: '',
-            col2: '',
-            col3: '',
-            col4: '',
-            col5: '',
-            col6: '',
-            col7: ''
-        },
-        {
-            col1: '',
-            col2: '',
-            col3: '',
-            col4: '',
-            col5: '',
-            col6: '',
-            col7: ''
-        }
-    ]
-
-
+  /*
     $scope.addRowToTable = function () {
         $scope.form1.table.push({
             col1: '',
@@ -77,16 +58,16 @@ function Form1Ctrl($scope,FormDetailsService) {
 
     $scope.removeRowFromTable = function (index) {
         $scope.form1.table.pop();
-    }
+    }*/
 
 
-    $scope.saveForm=function () {
-        $scope.form1.type="water";
-        FormDetailsService.create($scope.form1).then(function (result) {
-                console.log('saved');
+   /* $scope.editForm=function () {
+
+        FormDetailsService.edit($scope.form1).then(function (result) {
+                console.log('edited');
             }, function (err) {
             }
         );
-    }
+    }*/
 }
 

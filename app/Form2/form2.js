@@ -1,28 +1,28 @@
 'use strict';
 
-angular.module('myApp.form1', ['ngRoute'])
+angular.module('myApp.form2', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/form1', {
-            templateUrl: 'form1/form1.html',
-            controller: 'Form1Ctrl'
+        $routeProvider.when('/form2', {
+            templateUrl: 'form2/form2.html',
+            controller: 'Form2Ctrl'
         });
     }])
-    .controller('Form1Ctrl', Form1Ctrl);
+    .controller('Form2Ctrl', Form1Ctrl);
 
-function Form1Ctrl($scope) {
+function Form1Ctrl($scope,FormDetailsService) {
 
 
     $scope.form1 = {};
     $scope.form1.date = new Date();
-    $scope.form1.name="1";
+    $scope.form1.name="";
 
 
     $scope.printPage = function () {
         window.print();
     }
 
-    $scope.form1.table = [
+    $scope.form1.table_details = [
 
         {
             col1: '  ',
@@ -64,7 +64,7 @@ function Form1Ctrl($scope) {
 
 
     $scope.addRowToTable = function () {
-        $scope.form1.table.push({
+        $scope.form1.table_details.push({
             col1: '',
             col2: '',
             col3: '',
@@ -76,7 +76,16 @@ function Form1Ctrl($scope) {
     }
 
     $scope.removeRowFromTable = function (index) {
-        $scope.form1.table.pop();
+        $scope.form1.table_details.pop();
+    }
+
+    $scope.saveForm=function () {
+        $scope.form1.type= "sewerage";
+        FormDetailsService.create($scope.form1).then(function (result) {
+                console.log('saved');
+            }, function (err) {
+            }
+        );
     }
 }
 
