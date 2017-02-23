@@ -92,7 +92,7 @@ function FormDetailsService($http, $q) {
 
       var url="?";
 
-          url += 'name=' + query.name+ '&gosh=' + query.gosh+'&helka=' + query.helka+ '&megrash=' + query.megrash;
+          url += 'name=' + query.name+ '&gosh=' + query.gosh+'&helka=' + query.helka+ '&megrash=' + query.megrash + '&type=' + query.type;
 
       console.log(apiBase+'form_details/getFormByQuery' + url);
     $http.get(apiBase+'form_details/getFormByQuery' + url)

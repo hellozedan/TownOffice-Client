@@ -19,15 +19,18 @@
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
   <link rel="stylesheet" type="text/css" href="components/style.css">
   <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="bower_components/ng-notify/dist/ng-notify.min.css" rel="stylesheet" />
+
 
 </head>
 <body dir="rtl">
-<nav class="navbar navbar-inverse no-print">
+<div ng-controller="navController">
+<nav class="navbar navbar-inverse no-print" ng-if="UserDetails && UserDetails.isAdmin">
   <div class="container-fluid">
 
     <ul class="nav navbar-nav">
 
-      <li><a ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> יציאה</a></li>
+      <li class="clickable" ng-click="logout()"><a ><span class="glyphicon glyphicon-log-out"></span> יציאה</a></li>
 
 
     </ul>
@@ -55,15 +58,9 @@
 
   </div>
 </nav>
+</div>
 
 
-<!--  <ul  class="menu no-print">
-
-  &lt;!&ndash;  <li><a href="#!/view2">view2</a></li>&ndash;&gt;
-    <li><a href="#!/view1">ראשי</a></li>
-    <li><a href="#!/form1"> טופס </a></li>
-
-  </ul>-->
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -83,14 +80,14 @@
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
 
-  <script src="../node_modules/jspdf/dist/jspdf.debug.js"></script>
-  <script src="../node_modules/jspdf/dist/jspdf.min.js"></script>
+
 
 <script type="text/javascript" src="libs/png_support/zlib.js"></script>
   <script type="text/javascript" src="libs/png_support/png.js"></script>
   <script type="text/javascript" src="plugins/addimage.js"></script>
   <script type="text/javascript" src="plugins/png_support.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/ng-notify/dist/ng-notify.min.js"></script>
 
 
 
@@ -105,7 +102,8 @@
 <script src="login/login.js"></script>
 
 <!--services-->
-<script src="services.js"></script>
+<script src="services/forms_service.js"></script>
+<script src="services/user_service.js"></script>
 
 </body>
 </html>

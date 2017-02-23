@@ -1,17 +1,30 @@
 <div class="container search-box">
     <h2>חיפוש טפסים</h2>
     <div class="row">
-        <div class="col-xs-12 ">
+        <div class="col-lg-12 ">
             <div class="row">
 
                 <div  class=" col-xs-2">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button" ng-click="goSearchBy()"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
+
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="clearSearch()"><span class="glyphicon glyphicon-repeat"></span></button>
+                </span>
                 </div>
 
 
-
+             <div  class=" col-xs-2">
+                 <select ng-model="query.type" class="form-control">
+                     <option value="" selected disabled> סוג טופס
+                     </option>
+                     <option value="water">רשת מים
+                     </option>
+                     <option value="sewerage">רשת ביוב
+                     </option>
+                 </select>
+             </div>
 
                 <div  class=" col-xs-2">
                     <input type="text" class="form-control" name="x" placeholder="מגרש" ng-model="query.megrash">
@@ -42,7 +55,7 @@
     <h2>רשימת טפסים</h2>
 
 
-    <a href="#!/view_form" target="_blank"> go to view</a>
+
     <div class="item-in-search clickable" ng-repeat="form in forms_list" ng-click="OpenForm(form._id)">
 
         <span class="glyphicon glyphicon-book"></span>

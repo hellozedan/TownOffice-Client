@@ -40,7 +40,7 @@ function View1Ctrl($scope,FormDetailsService){
 
 
         console.log($scope.query);
-        if( $scope.query.name=="" &&  $scope.query.gosh=="" &&  $scope.query.helka==""&& $scope.query.megrash==""){
+        if(  $scope.query.type=="" && $scope.query.name=="" &&  $scope.query.gosh=="" &&  $scope.query.helka==""&& $scope.query.megrash==""){
             //notification to choose one
             alert('write something to search')
         }else{
@@ -51,6 +51,11 @@ function View1Ctrl($scope,FormDetailsService){
              }
              );
         }
+    }
+
+    $scope.clearSearch=function () {
+
+        $scope.query={};
     }
 
 
